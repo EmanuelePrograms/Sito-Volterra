@@ -1,0 +1,13 @@
+nav{
+    background-color: #1E3A8A;
+}
+
+.nav-item, .nav-link{
+    color: white;
+    padding: 1%;
+}
+
+.containerimg{
+    overflow: hidden;
+    position: relative;
+}
