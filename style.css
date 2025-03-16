@@ -64,3 +64,11 @@ nav{
 .fade-effect1 {
     animation: fadeEffect1 1s ease-in-out forwards;
 }
+
+.navbar .dropdown-toggle::after{
+    display: none;
+}
+
+a{
+    text-decoration: none;
+}
