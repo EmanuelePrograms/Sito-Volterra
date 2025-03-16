@@ -90,8 +90,14 @@
           </div>
         </div>
       </nav>
+
       <div class="containerimg">
       <img src="https://www.istitutovolterra.edu.it/wp-content/uploads/2023/06/Panoramica_scuola_volterra.jpg" alt="Panoramica Scuola" style="height: 85%;">
+      <div class="overlay" id="overlay"></div>
+      <div id="testoScuola">
+      <h1 style="font-size: 3em;">ITIS VOLTERRA</h1>
+      <p style="text-align: center; font-size: 1.5em"><span id="counter1">0</span> indirizzi <span style="font-size: 1.75em;">|</span> <span id="counter2">0</span> alunni <span style="font-size: 1.75em;">|</span> <span id="counter3">0</span> classi</p>
+      </div>
       </div>
 
       <div class="container-custom">
@@ -118,7 +124,48 @@
             <p>Programmazione, reti, sistemi operativi.</p>
         </div>
     </div>
-    
+
+    <script>
+      // Funzione che aggiorna il numero fino al valore target
+      function animateNumber(target, duration, counterId) {
+          const counterElement = document.getElementById(counterId);
+          let start = 0;
+          let startTime = null;
+  
+          // Funzione di animazione
+          function updateCounter(timestamp) {
+              if (!startTime) startTime = timestamp;
+              const progress = timestamp - startTime;
+  
+              // Calcola la progressione del numero
+              start = Math.min(Math.floor((progress / duration) * target), target);
+  
+              // Aggiorna il testo dell'elemento con il numero
+              counterElement.textContent = start;
+  
+              // Se l'animazione non è finita, continua ad aggiornare
+              if (start < target) {
+                  requestAnimationFrame(updateCounter);
+              }
+          }
+  
+          // Inizia l'animazione
+          requestAnimationFrame(updateCounter);
+      }
+  
+      // Inizializza l'animazione con i numeri finali e durata di 5 secondi (5000 ms)
+      window.onload = function() {
+        setTimeout(() => {
+          document.getElementById("overlay").classList.add("fade-effect"); // Anima overlay e testo insieme
+          document.getElementById("testoScuola").classList.add("fade-effect1");
+      }, 1000);
+      setTimeout(() => {
+        animateNumber(3, 5000, 'counter1');  // Primo numero
+        animateNumber(1032, 5000, 'counter2');   // Secondo numero
+        animateNumber(44, 5000, 'counter3');  // Terzo numero
+    }, 2000);
+      };
+  </script>  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

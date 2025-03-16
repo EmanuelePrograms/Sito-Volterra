@@ -10,4 +10,57 @@ nav{
 .containerimg{
     overflow: hidden;
     position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 100vw;
+}
+
+@keyframes fadeEffect {
+    from {
+        background: rgba(0, 0, 0, 0); /* Overlay trasparente */
+        transform: translate(-50%, -60%); /* Testo leggermente più in alto */
+    }
+    to {
+        background: rgba(0, 0, 0, 0.5); /* Overlay scuro */
+        transform: translate(-50%, -50%); /* Testo centrato */
+    }
+}
+
+@keyframes fadeEffect1 {
+    from {
+        opacity: 0; /* Testo invisibile */
+        transform: translate(-50%, -60%); /* Testo leggermente più in alto */
+    }
+    to {
+        opacity: 1; /* Testo visibile */
+        transform: translate(-50%, -50%); /* Testo centrato */
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    background: rgba(0, 0, 0, 0); /* Inizialmente trasparente */
+}
+
+#testoScuola {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: white;
+    opacity: 0; /* Inizialmente invisibile */
+}
+
+/* Classe che attiva l'animazione su entrambi */
+.fade-effect {
+    animation: fadeEffect 1s ease-in-out forwards;
+}
+
+.fade-effect1 {
+    animation: fadeEffect1 1s ease-in-out forwards;
 }
